@@ -1,0 +1,7 @@
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - MaintenanceModeControllerExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - MaintenanceModeExtension
