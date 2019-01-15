@@ -21,7 +21,7 @@ class MaintenanceModeControllerExtension extends Extension {
       $config = SiteConfig::current_site_config();
       $MaintenancePage = MaintenancePage::get()->first();
 
-      if ($this->owner->URLSegment == "home" && $config->MaintenanceMode && !Permission::check('VIEW_SITE_MAINTENANCE_MODE') && !Permission::check('ADMIN') ) {
+      if ($this->owner->URLSegment == "home" && $config->MaintenanceMode && !Permission::check('MAINTENANCE_PAGE_VIEW_SITE') && !Permission::check('ADMIN') ) {
         $response = new HTTPResponse();
         $response->redirect($MaintenancePage->AbsoluteLink(), 302);
         $response->output();
