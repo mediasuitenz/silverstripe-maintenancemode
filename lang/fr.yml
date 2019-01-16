@@ -1,3 +1,4 @@
 fr:
   MaintenancePage:
     PERMISSION_ADMIN: "Accès au site pendant la maintenance"
+    DESCRIPTION: "Page de maintenance"
