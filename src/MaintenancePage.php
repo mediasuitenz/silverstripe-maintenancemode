@@ -51,7 +51,7 @@ class MaintenancePageController extends ContentController implements PermissionP
 	public function providePermissions()
 	{
 		return array(
-			'MAINTENANCE_PAGE_VIEW_SITE' => "Accès au site même s'il est en maintenance"
+			'MAINTENANCE_PAGE_VIEW_SITE' => _t('MaintenancePage.PERMISSION_ADMIN',"Access to the website while maintenance")
 		);
 	}
 
