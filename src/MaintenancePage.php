@@ -9,7 +9,7 @@ class MaintenancePage extends ErrorPage {
 
 	private static $allowed_children = array("none");
 
-	private static $description = _t('MaintenancePage.DESCRIPTION',"Maintenance page");
+	private static $description = "Maintenance page";
 
 	public function canCreate($member = null, $context = null) {
 		return !MaintenancePage::get()->exists();
