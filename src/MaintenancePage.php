@@ -41,7 +41,7 @@ class MaintenancePageController extends ContentController implements PermissionP
 		if ($this->dataRecord->RenderingTemplate) {
 			return $this->renderWith(array($this->dataRecord->RenderingTemplate));
 		}
-		return $this->renderWith(array('PageMaintenance', 'Page'));
+		return $this->renderWith(array('MaintenancePage', 'Page'));
 	}
 
 
