@@ -4,13 +4,12 @@ use SilverStripe\Security\PermissionProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\ErrorPage\ErrorPage;
-use SilverStripe\ErrorPage\ErrorPageController;
 
 class MaintenancePage extends ErrorPage {
 
 	private static $allowed_children = array("none");
 
-	private static $description = 'Page de maintenance';
+	private static $description = _t('MaintenancePage.DESCRIPTION',"Maintenance page");
 
 	public function canCreate($member = null, $context = null) {
 		return !MaintenancePage::get()->exists();
