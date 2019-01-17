@@ -40,19 +40,19 @@ class MaintenanceModeControllerExtension extends Extension {
           return;
       }
 
-      if(strstr("/Security/login", $this->owner->RelativeLink())) {
-        return;
-      }
       if (!$MaintenancePage) {
         return;
       }
 
-      $response = new HTTPResponse();
-      $response->redirect($MaintenancePage->AbsoluteLink(), 302);
-      HTTP::add_cache_headers($response);
-      $response->output();
-      die();
+      if(strpos($this->owner->RelativeLink(), "Security") === false) {
 
+        $response = new HTTPResponse();
+        $response->redirect($MaintenancePage->AbsoluteLink(), 302);
+        HTTP::add_cache_headers($response);
+        $response->output();
+        die();
+        
+      }
 
     }
 
