@@ -1,5 +1,5 @@
 {
-    "name": "intwebg/silverstripe-maintenancemode",
+    "name": "agencecaza/silverstripe-maintenancemode",
     "description": "Put the website into maintenance mode.",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe", "maintenance", "user-access"],
@@ -7,7 +7,7 @@
     "authors": [
     {
         "name": "Stéphane Guevremont",
-        "email": "stephane.guevremont@gmail.com"
+        "email": "stephane@agencecaza.ca"
     }],
     "require": {
         "silverstripe/cms": "^4",
@@ -15,7 +15,7 @@
     },
     "autoload": {
       "psr-4": {
-          "intwebg\\maintenancemode\\": "src/"
+          "agencecaza\\maintenancemode\\": "src/"
       }
     },
     "extra": {
