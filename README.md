@@ -9,8 +9,15 @@
 <pre>composer require agencecaza/silverstripe-cryptedmail dev-master</pre>
 
 <h2>Usage</h2>
-In template
-<code>$Email.CryptedMail</code>
+<h3>Templates</h3>
+<p>MaintenancePage.ss must be created in your project and customized with theme styles.</p>
 
-In HTMLEditorField
-<code>[CryptedMail value='user@domain.tld']</code>
+<h3>Give temporary access to developers</h3>
+<ul>
+  <li>Step 1 : Create a group «Maintenance Mode» and set permission «Access to the website»</li>
+  <li>Step 2 : Create a user `temp@domain.tld` is the maintenance group</li>
+</ul>
+
+<h3>Preview website</h3>
+<p>You can see the website throught login</p>
+<pre>http://domain.tld/Security/login?BackURL=website-homepage-link</pre>
