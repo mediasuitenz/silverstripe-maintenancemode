@@ -6,7 +6,7 @@
 <ul><li>SilverStripe ^4.2.x</li></ul>
 
 <h2>Installation</h2>
-<pre>composer require agencecaza/silverstripe-cryptedmail dev-master</pre>
+<pre>composer require agencecaza/silverstripe-maintenancemode dev-master</pre>
 
 <h2>Usage</h2>
 <h3>Templates</h3>
