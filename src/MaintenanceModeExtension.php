@@ -31,14 +31,12 @@ class MaintenanceModeExtension extends DataExtension {
         'Root.Access',
         CheckboxField::create(
           'MaintenanceMode',
-          'Mettre le site en maintenance'
+          'Put site in maintenance mode'
         )
+        ->setDescription('If checked, only admin users will be able to login to the site. All other users will be redirected to the maintenance page.')
       );
-
     }
 
   	return $fields;
-
   }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\CheckboxField;
@@ -16,44 +15,39 @@ use SilverStripe\Core\Extension;
 
 class MaintenanceModeControllerExtension extends Extension {
 
-  	public function onBeforeInit() {
+  public function onBeforeInit() {
 
-      $config = SiteConfig::current_site_config();
-      $MaintenancePage = MaintenancePage::get()->first();
+    $config = SiteConfig::current_site_config();
+    $MaintenancePage = MaintenancePage::get()->first();
 
-      if ($this->owner->URLSegment == "home" && $config->MaintenanceMode && !Permission::check('MAINTENANCE_PAGE_VIEW_SITE') && !Permission::check('ADMIN') ) {
-        $response = new HTTPResponse();
-        $response->redirect($MaintenancePage->AbsoluteLink(), 302);
-        $response->output();
-        die();
-      }
-
-      if (!$config->MaintenanceMode) {
-          return;
-      }
-
-      if (Permission::check('MAINTENANCE_PAGE_VIEW_SITE') || Permission::check('ADMIN')) {
-          return;
-      }
-
-      if ($this->owner instanceof MaintenancePageController) {
-          return;
-      }
-
-      if (!$MaintenancePage) {
-        return;
-      }
-
-      if(strpos($this->owner->RelativeLink(), "Security") === false) {
-
-        $response = new HTTPResponse();
-        $response->redirect($MaintenancePage->AbsoluteLink(), 302);
-        HTTP::add_cache_headers($response);
-        $response->output();
-        die();
-        
-      }
-
+    if ($this->owner->URLSegment == "home" && $config->MaintenanceMode && !Permission::check('ADMIN') ) {
+      $response = new HTTPResponse();
+      $response->redirect($MaintenancePage->AbsoluteLink(), 302);
+      $response->output();
+      die();
     }
 
+    if (!$config->MaintenanceMode) {
+        return;
+    }
+
+    if (Permission::check('ADMIN')) {
+        return;
+    }
+
+    if ($this->owner instanceof MaintenancePageController) {
+        return;
+    }
+
+    if (!$MaintenancePage) {
+      return;
+    }
+
+    if(strpos($this->owner->RelativeLink(), "Security") === false) {
+      $response = new HTTPResponse();
+      $response->redirect($MaintenancePage->AbsoluteLink(), 302);
+      $response->output();
+      die();
+    }
+  }
 }

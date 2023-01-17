@@ -8,17 +8,15 @@ use SilverStripe\ErrorPage\ErrorPage;
 class MaintenancePage extends ErrorPage {
 
 	private static $allowed_children = array("none");
-
 	private static $description = "Maintenance page";
 
 	public function canCreate($member = null, $context = null) {
 		return !MaintenancePage::get()->exists();
 	}
-
 }
 
 
-class MaintenancePageController extends ContentController implements PermissionProvider {
+class MaintenancePageController extends ContentController {
 
 	private static $url_handlers = array(
 		'*' => 'index'
@@ -43,15 +41,4 @@ class MaintenancePageController extends ContentController implements PermissionP
 		}
 		return $this->renderWith(array('MaintenancePage', 'Page'));
 	}
-
-
-
-
-	public function providePermissions()
-	{
-		return array(
-			'MAINTENANCE_PAGE_VIEW_SITE' => _t('MaintenancePage.PERMISSION_ADMIN',"Access to the website while maintenance")
-		);
-	}
-
 }
