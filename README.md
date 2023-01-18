@@ -1,23 +1,41 @@
 <h1>agencecaza/silverstripe-maintenancemode</h1>
 
-<p>Put the website into maintenance mode</p>
+<p>Simple module to put the website into maintenance mode</p>
 
 <h2>Requirements</h2>
 <ul><li>SilverStripe ^4.2.x</li></ul>
 
 <h2>Installation</h2>
-<pre>composer require agencecaza/silverstripe-maintenancemode dev-master</pre>
+
+First you need to update the `composer.json` file to point composer to the mediasuitenz fork. Do the following:
+
+In the require section, add this:
+
+<pre>
+ "agencecaza/silverstripe-maintenancemode": "dev-fixup_language_and_permissions"
+</pre>
+
+Then add a new section (if it doesn’t already exist) to specify mediasutienz fork for composer to install:
+
+<pre>
+"repositories": [
+    {
+        "type": "git",
+        "url": "https://github.com/mediasuitenz/silverstripe-maintenancemode.git"
+    }
+],
+</pre>
+
+Once this is done, install by running:
+
+<pre>composer require agencecaza/silverstripe-maintenancemode dev-fixup_language_and_permissions</pre>
 
 <h2>Usage</h2>
-<h3>Templates</h3>
-<p>MaintenancePage.ss must be created in your project and customized with theme styles.</p>
 
-<h3>Give temporary access to developers</h3>
-<ul>
-  <li>Step 1 : Create a group «Maintenance Mode» and set permission «Access to the website»</li>
-  <li>Step 2 : Create a user `temp@domain.tld` is the maintenance group</li>
-</ul>
+You will need to create a MaintenancePage.ss template first, and style it.
 
-<h3>Preview website</h3>
-<p>You can see the website throught login</p>
-<pre>http://domain.tld/Security/login?BackURL=website-homepage-link</pre>
+If you have created a template and published it, then you now be able to toggle on and off maintenance mode in the site settings -> access tab.
+
+Notes:
+Leaving the maintenance page published is fine, it's not able to be navigated to unless toggled on.
+When maintenance mode is toggle on, only site administrators can browse the site and access the CMS, all other users are redirected to the maintenance page.
