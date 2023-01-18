@@ -1,9 +1,11 @@
 <?php
 
-use SilverStripe\Security\PermissionProvider;
-use SilverStripe\Security\Permission;
-use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\View\SSViewer;
 use SilverStripe\ErrorPage\ErrorPage;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\PermissionProvider;
+use SilverStripe\ErrorPage\ErrorPageController;
+use SilverStripe\CMS\Controllers\ContentController;
 
 class MaintenancePage extends ErrorPage {
 
@@ -16,7 +18,7 @@ class MaintenancePage extends ErrorPage {
 }
 
 
-class MaintenancePageController extends ContentController {
+class MaintenancePageController extends ErrorPageController {
 
 	private static $url_handlers = array(
 		'*' => 'index'
